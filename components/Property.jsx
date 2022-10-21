@@ -28,7 +28,7 @@ const Property = ({property:{title,area,rooms,baths, externalID,isVerified,price
               {isVerified && <GoVerified />}
             </Box>
             <Text fontWeight="bold" fontSize="lg">
-              AED{millify(price)}
+              AED {millify(price)}
               {rentFrequency && `/${rentFrequency}`}
             </Text>
           </Flex>
