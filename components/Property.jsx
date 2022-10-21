@@ -1,9 +1,14 @@
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, AlertTitle } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { GoVerified } from "react-icons/go";
+import { Avatar } from "@chakra-ui/avatar";
+import millify from "millify";
+import { FaBed, FaBath } from 'react-icons/fa';
+import { BsGridFill } from 'react-icons/bs';
+import DefaultImage from "../assets/images/house.jpg"
 
-const Property = ({property:{externalID,isVerified,price,rentFrequency}}) => (
+const Property = ({property:{title,area,rooms,baths, externalID,isVerified,price,rentFrequency,coverPhoto,agency}}) => (
   <Link href={`/property/${externalID}`} passHref>
     <Flex
       flexWrap="wrap"
@@ -13,9 +18,9 @@ const Property = ({property:{externalID,isVerified,price,rentFrequency}}) => (
       justifyContent="flex-start"
       cusrsor="pointer"
     >
-      {/* <Box>
-        <Image src={coverPhoto.url} width={400} height={260} />
-      </Box> */}
+      <Box>
+        <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} />
+      </Box>
       <Box w="full">
         <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
           <Flex alignItems="center">
@@ -23,11 +28,21 @@ const Property = ({property:{externalID,isVerified,price,rentFrequency}}) => (
               {isVerified && <GoVerified />}
             </Box>
             <Text fontWeight="bold" fontSize="lg">
-              AED{price}
+              AED{millify(price)}
               {rentFrequency && `/${rentFrequency}`}
             </Text>
           </Flex>
+          <Box>
+              <Avatar size="sm" src={agency?.logo?.url } />
+          </Box>
         </Flex>
+        <Flex alignItems="center" p="1" justifyContent="space-between" w="250px" color="blue.400">
+            {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
+        </Flex>
+        <Text fontSize="lg">
+            {title.lenght > 30 ? `${title.substring(0,30)}...`:title}
+
+        </Text>
       </Box>
     </Flex>
   </Link>
