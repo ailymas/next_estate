@@ -4,6 +4,7 @@ import Link from "next/link";
 import Property from "../components/Property";
 import { baseUrl, FetchApi } from "../utils/fetchApi";
 
+
 const Banner = ({
   purpose,
   imageUrl,

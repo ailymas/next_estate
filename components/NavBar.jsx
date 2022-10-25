@@ -8,7 +8,7 @@ import {FiKey} from "react-icons/fi"
 
 
 const NavBar = ()=>(
-    <Flex p="2" BorderButtom="1px" borderColor="gray.100">
+    <Flex p="2" borderBottom="1px" borderColor="gray.100">
         <Box fontSize="3xl" color="blue.400" fontWeight="bold">
             <Link href="/" paddingLeft="2">RealEstator</Link>
         </Box>
