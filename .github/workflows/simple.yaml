@@ -2,7 +2,7 @@ name : SimplePipeline
 on :
   push:
     branches : [main]
-  jobs :
+jobs :
     lintTest:
       name : lint
       runs-on : ubuntu-latest
