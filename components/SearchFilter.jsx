@@ -5,7 +5,7 @@ import { useRouter } from "next/dist/client/router";
 
 const SearchFilter = () => {
   const router = useRouter();
-  const [filters] = useState(filterData);
+  const [filters,setFilterfs] = useState(filterData);
   const searchProperties = (FilterValues) => {
     const values = getFilterValues(FilterValues);
     const path = router.pathname;
